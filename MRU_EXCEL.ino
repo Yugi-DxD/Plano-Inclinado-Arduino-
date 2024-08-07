@@ -34,7 +34,6 @@ void keyUP ();
 //===============================================================================//
 // * Definir variáveis que serão utilizadas para calcular o tempo
 //===============================================================================//
-unsigned long tempoInicial;
 unsigned long tempo1, tempo2, tempo3, tempo4, tempo5;
 float t1, t2, t3, t4, t5;
 
@@ -75,9 +74,6 @@ void loop() {
 
     //LED Aceso indica que o sistema ainda não está funcionando
     digitalWrite(led, HIGH);
-
-    //Tempo que será capturado assim que o botão for pressionado.
-    tempoInicial = millis();
 
     //OBS: Este tempo será usando para realizar uma correção no tempo de cada sensor,
     //a fim de obter o valor exato dos instantes de tempo em cada posição do móvel.
@@ -150,11 +146,11 @@ void loop() {
   // * Após coletar os tempos, fazer a correção no tempo e converter para SEGUNDOS
   //===============================================================================//
   if (sensPass == 5) {
-    t1 = (tempo1 - tempoInicial) * 0.001;
-    t2 = (tempo2 - tempoInicial) * 0.001;
-    t3 = (tempo3 - tempoInicial) * 0.001;
-    t4 = (tempo4 - tempoInicial) * 0.001;
-    t5 = (tempo5 - tempoInicial) * 0.001;
+    t1 = (tempo1 - tempo1) * 0.001;
+    t2 = (tempo2 - tempo1) * 0.001;
+    t3 = (tempo3 - tempo1) * 0.001;
+    t4 = (tempo4 - tempo1) * 0.001;
+    t5 = (tempo5 - tempo1) * 0.001;
 
     delay(50);
     
