@@ -21,15 +21,6 @@
 #define led 9
 
 //===============================================================================//
-// * Strings usadas para escrever os dados no EXCEL
-//===============================================================================//
-String tempo_1;
-String tempo_2;
-String tempo_3;
-String tempo_4;
-String tempo_5;
-
-//===============================================================================//
 // * Variáveis de Controle
 //===============================================================================//
 bool a, b, c, d, e;
@@ -172,6 +163,15 @@ void loop() {
     t5 = (tempo5 - tempoInicial) * 0.001;
 
     delay(50);
+    
+    //===============================================================================//
+    // * Strings usadas para escrever os dados no EXCEL
+    //===============================================================================//
+    String tempo_1;
+    String tempo_2;
+    String tempo_3;
+    String tempo_4;
+    String tempo_5;
 
     //Converte as variáveis para textos
     tempo_1 = String(t1, 3);
