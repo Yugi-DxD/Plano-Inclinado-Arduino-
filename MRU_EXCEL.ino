@@ -23,9 +23,7 @@
 //===============================================================================//
 // * Variáveis de Controle
 //===============================================================================//
-bool a, b, c, d, e;
-byte sens;
-byte i;
+int sens, sensPass;
 
 //===============================================================================//
 // * Declarar funções de teclas
@@ -72,12 +70,8 @@ void loop() {
     digitalWrite(gate, HIGH);
     
     //Variáveis definidas como FALSE quando o botão não estiver pressionado
-    a = false;
-    b = false;
-    c = false;
-    d = false;
-    e = false;
     sens = 0;
+    sensPass = 0;
 
     //LED Aceso indica que o sistema ainda não está funcionando
     digitalWrite(led, HIGH);
@@ -100,62 +94,62 @@ void loop() {
   // * Define as Variáveis de controle como TRUE se o sensor tiver captado o móvel
   //===============================================================================//
   if (digitalRead(sensor1) == LOW) {
-    a = true;
+    sens = 0;
   }
 
   if (digitalRead(sensor2) == LOW) {
-    b = true;
+    sens = 1;
   }
 
   if (digitalRead(sensor3) == LOW) {
-    c = true;
+    sens = 2;
   }
 
   if (digitalRead(sensor4) == LOW) {
-    d = true;
+    sens = 3;
   }
 
   if (digitalRead(sensor5) == LOW) {
-    e = true;
+    sens = 4;
   }
 
   //===============================================================================//
   // * Obter os instantes de tempo quando o móvel passar pelos sensores
   //===============================================================================//
-  if (a == true && b == false && c == false && d == false && e == false && sens == 0) {
+  if (sens == 0 && sensPass == 0) {
     tempo1 = millis();
-    sens++;
+    sensPass++;
     //Obter o valor de tempo no Instante 1
   }
 
-  if (a == true && b == true && c == false && d == false && e == false && sens == 1) {
+  if (sens == 1 && sensPass == 1) {
     tempo2 = millis();
-    sens++;
+    sens, sensPass;++;
     //Obter o valor de tempo no Instante 2
   }
 
-  if (a == true && b == true && c == true && d == false && e == false && sens == 2) {
+  if (sens == 2 && sensPass == 2) {
     tempo3 = millis();
-    sens++;
+    sensPass++;
     //Obter o valor de tempo no Instante 3
   }
 
-  if (a == true && b == true && c == true && d == true && e == false && sens == 3) {
+  if (sens == 3 && sensPass == 3) {
     tempo4 = millis();
-    sens++;
+    sensPass++;
     //Obter o valor de tempo no Instante 4
   }
 
-  if (a == true && b == true && c == true && d == true && e == true && sens == 4){
+  if (sens == 4 && sensPass == 4){
     tempo5 = millis();
-    sens++;
+    sensPass++;
     //Obter o valor de tempo no Instante 5
   }
 
   //===============================================================================//
   // * Após coletar os tempos, fazer a correção no tempo e converter para SEGUNDOS
   //===============================================================================//
-  if (sens == 5) {
+  if (sensPass == 5) {
     t1 = (tempo1 - tempoInicial) * 0.001;
     t2 = (tempo2 - tempoInicial) * 0.001;
     t3 = (tempo3 - tempoInicial) * 0.001;
@@ -202,6 +196,7 @@ void loop() {
     keyUP();
     
     sens = 0;
+    sensPass = 0;
   }
 }
 
@@ -219,7 +214,7 @@ void keyENTER() {
 // * Função para pressionar e soltar a tecla CIMA 5 vezes
 //===============================================================================//
 void keyUP() {
-  for(i = 0; i < 5; i++){
+  for(int i = 0; i < 5; i++){
     Keyboard.press(KEY_UP_ARROW);
     delay(50);
     Keyboard.release(KEY_UP_ARROW);
