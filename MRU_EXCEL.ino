@@ -62,9 +62,9 @@ void setup() {
 
 void loop() {
   //===============================================================================//
-  // * Enquanto o Botão não estiver pressionado, ocorre este WHILE
+  // * Enquanto o Botão não estiver pressionado, ocorre este IF
   //===============================================================================//
-  while (digitalRead(botao) == HIGH) {
+  if(digitalRead(botao) == HIGH){
     //Liga o eletroímã
     digitalWrite(gate, HIGH);
     
@@ -77,122 +77,122 @@ void loop() {
 
     //OBS: Este tempo será usando para realizar uma correção no tempo de cada sensor,
     //a fim de obter o valor exato dos instantes de tempo em cada posição do móvel.
-  }
-
-  //===============================================================================//
-  // * Após condição do WHILE ser desfeita
-  //   Desliga o LED, indicando que o sistema está funcionado
-  //===============================================================================//
-  digitalWrite(gate, LOW);
-  digitalWrite(led, LOW);
-
-  //===============================================================================//
-  // * Define as Variáveis de controle como TRUE se o sensor tiver captado o móvel
-  //===============================================================================//
-  if (digitalRead(sensor1) == LOW) {
-    sens = 0;
-  }
-
-  if (digitalRead(sensor2) == LOW) {
-    sens = 1;
-  }
-
-  if (digitalRead(sensor3) == LOW) {
-    sens = 2;
-  }
-
-  if (digitalRead(sensor4) == LOW) {
-    sens = 3;
-  }
-
-  if (digitalRead(sensor5) == LOW) {
-    sens = 4;
-  }
-
-  //===============================================================================//
-  // * Obter os instantes de tempo quando o móvel passar pelos sensores
-  //===============================================================================//
-  if (sens == 0 && sensPass == 0) {
-    tempo1 = millis();
-    sensPass++;
-    //Obter o valor de tempo no Instante 1
-  }
-
-  if (sens == 1 && sensPass == 1) {
-    tempo2 = millis();
-    sens, sensPass;++;
-    //Obter o valor de tempo no Instante 2
-  }
-
-  if (sens == 2 && sensPass == 2) {
-    tempo3 = millis();
-    sensPass++;
-    //Obter o valor de tempo no Instante 3
-  }
-
-  if (sens == 3 && sensPass == 3) {
-    tempo4 = millis();
-    sensPass++;
-    //Obter o valor de tempo no Instante 4
-  }
-
-  if (sens == 4 && sensPass == 4){
-    tempo5 = millis();
-    sensPass++;
-    //Obter o valor de tempo no Instante 5
-  }
-
-  //===============================================================================//
-  // * Após coletar os tempos, fazer a correção no tempo e converter para SEGUNDOS
-  //===============================================================================//
-  if (sensPass == 5) {
-    t1 = (tempo1 - tempo1) * 0.001;
-    t2 = (tempo2 - tempo1) * 0.001;
-    t3 = (tempo3 - tempo1) * 0.001;
-    t4 = (tempo4 - tempo1) * 0.001;
-    t5 = (tempo5 - tempo1) * 0.001;
-
-    delay(50);
-    
+  }else{
     //===============================================================================//
-    // * Strings usadas para escrever os dados no EXCEL
+    // * Após condição do WHILE ser desfeita
+    //   Desliga o LED, indicando que o sistema está funcionado
     //===============================================================================//
-    String tempo_1;
-    String tempo_2;
-    String tempo_3;
-    String tempo_4;
-    String tempo_5;
+    digitalWrite(gate, LOW);
+    digitalWrite(led, LOW);
 
-    //Converte as variáveis para textos
-    tempo_1 = String(t1, 3);
-    tempo_2 = String(t2, 3);
-    tempo_3 = String(t3, 3);
-    tempo_4 = String(t4, 3); 
-    tempo_5 = String(t5, 3);
+    //===============================================================================//
+    // * Define as Variáveis de controle como TRUE se o sensor tiver captado o móvel
+    //===============================================================================//
+    if (digitalRead(sensor1) == LOW) {
+      sens = 0;
+    }
 
-    //Troca o PONTO FINAL por VÍRGULA como indicador de casa decimal
-    tempo_1.replace(".", ","); 
-    tempo_2.replace(".", ",");
-    tempo_3.replace(".", ",");    
-    tempo_4.replace(".", ",");
-    tempo_5.replace(".", ","); 
+    if (digitalRead(sensor2) == LOW) {
+      sens = 1;
+    }
 
-    //Imprimir os valores obtidos no EXCEL
-    Keyboard.print(tempo_1);
-    keyENTER();
-    Keyboard.print(tempo_2);
-    keyENTER();
-    Keyboard.print(tempo_3);
-    keyENTER();
-    Keyboard.print(tempo_4);
-    keyENTER();
-    Keyboard.print(tempo_5);
-    keyENTER();
+    if (digitalRead(sensor3) == LOW) {
+      sens = 2;
+    }
 
-    keyUP();
-    
-    sens = 0;
-    sensPass = 0;
+    if (digitalRead(sensor4) == LOW) {
+      sens = 3;
+    }
+
+    if (digitalRead(sensor5) == LOW) {
+      sens = 4;
+    }
+
+    //===============================================================================//
+    // * Obter os instantes de tempo quando o móvel passar pelos sensores
+    //===============================================================================//
+    if (sens == 0 && sensPass == 0) {
+      tempo1 = millis();
+      sensPass++;
+      //Obter o valor de tempo no Instante 1
+    }
+
+    if (sens == 1 && sensPass == 1) {
+      tempo2 = millis();
+      sens, sensPass;++;
+      //Obter o valor de tempo no Instante 2
+    }
+
+    if (sens == 2 && sensPass == 2) {
+      tempo3 = millis();
+      sensPass++;
+      //Obter o valor de tempo no Instante 3
+    }
+
+    if (sens == 3 && sensPass == 3) {
+      tempo4 = millis();
+      sensPass++;
+      //Obter o valor de tempo no Instante 4
+    }
+
+    if (sens == 4 && sensPass == 4){
+      tempo5 = millis();
+      sensPass++;
+      //Obter o valor de tempo no Instante 5
+    }
+
+    //===============================================================================//
+    // * Após coletar os tempos, fazer a correção no tempo e converter para SEGUNDOS
+    //===============================================================================//
+    if (sensPass == 5) {
+      t1 = (tempo1 - tempo1) * 0.001;
+      t2 = (tempo2 - tempo1) * 0.001;
+      t3 = (tempo3 - tempo1) * 0.001;
+      t4 = (tempo4 - tempo1) * 0.001;
+      t5 = (tempo5 - tempo1) * 0.001;
+
+      delay(50);
+      
+      //===============================================================================//
+      // * Strings usadas para escrever os dados no EXCEL
+      //===============================================================================//
+      String tempo_1;
+      String tempo_2;
+      String tempo_3;
+      String tempo_4;
+      String tempo_5;
+
+      //Converte as variáveis para textos
+      tempo_1 = String(t1, 3);
+      tempo_2 = String(t2, 3);
+      tempo_3 = String(t3, 3);
+      tempo_4 = String(t4, 3); 
+      tempo_5 = String(t5, 3);
+
+      //Troca o PONTO FINAL por VÍRGULA como indicador de casa decimal
+      tempo_1.replace(".", ","); 
+      tempo_2.replace(".", ",");
+      tempo_3.replace(".", ",");    
+      tempo_4.replace(".", ",");
+      tempo_5.replace(".", ","); 
+
+      //Imprimir os valores obtidos no EXCEL
+      Keyboard.print(tempo_1);
+      keyENTER();
+      Keyboard.print(tempo_2);
+      keyENTER();
+      Keyboard.print(tempo_3);
+      keyENTER();
+      Keyboard.print(tempo_4);
+      keyENTER();
+      Keyboard.print(tempo_5);
+      keyENTER();
+
+      keyUP();
+      
+      sens = 0;
+      sensPass = 0;
+    }
   }
 }
 
