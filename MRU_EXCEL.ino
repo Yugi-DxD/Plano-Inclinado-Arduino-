@@ -12,11 +12,11 @@
 // * Definir os Sensores e outros Componentes
 //===============================================================================//
 #define gate 7
-#define sensor1 2 //Marrom
-#define sensor2 3 //Cinza
-#define sensor3 4 //Azul
-#define sensor4 5 //Roxo
-#define sensor5 6 //Verde
+#define sensor0 2 //Marrom
+#define sensor1 3 //Cinza
+#define sensor2 4 //Azul
+#define sensor3 5 //Roxo
+#define sensor4 6 //Verde
 #define botao 8
 #define led 9
 
@@ -48,11 +48,11 @@ void setup() {
   //===============================================================================//
   // * Definir os Sensores como Entrada de Dados
   //===============================================================================//
+  pinMode(sensor0, INPUT);
   pinMode(sensor1, INPUT);
   pinMode(sensor2, INPUT);
   pinMode(sensor3, INPUT);
   pinMode(sensor4, INPUT);
-  pinMode(sensor5, INPUT);
 
   //===============================================================================//
   // * Iniciar o Teclado
@@ -88,23 +88,23 @@ void loop() {
     //===============================================================================//
     // * Define as Variáveis de controle como TRUE se o sensor tiver captado o móvel
     //===============================================================================//
-    if (digitalRead(sensor1) == LOW) {
+    if (digitalRead(sensor0) == LOW) {
       sens = 0;
     }
 
-    if (digitalRead(sensor2) == LOW) {
+    if (digitalRead(sensor1) == LOW) {
       sens = 1;
     }
 
-    if (digitalRead(sensor3) == LOW) {
+    if (digitalRead(sensor2) == LOW) {
       sens = 2;
     }
 
-    if (digitalRead(sensor4) == LOW) {
+    if (digitalRead(sensor3) == LOW) {
       sens = 3;
     }
 
-    if (digitalRead(sensor5) == LOW) {
+    if (digitalRead(sensor4) == LOW) {
       sens = 4;
     }
 
