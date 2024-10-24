@@ -7,7 +7,7 @@ O projeto tem como intuito automatizar a forma como o experimento feito por Gali
 
 Este algorítimo por sua vez possui uma estrutura de código bem simples porém bastante funcional, usando o básico já oferecido pela plataforma Arduino em sua IDE. Claro, necessita de um certo conhecimento de Linguagem de Programação, sobreutudo em C/C++, para melhor entendimento do código.
 
-Materiais Necessários:
+Materiais Necessários Obrigatórios:
 
   - Arduino Leonardo ou Compatível
   - Módulo Eletroímã
@@ -15,13 +15,22 @@ Materiais Necessários:
   - Protoboard
   - Led de Alto Brilho
   - Interruptor
-  - Transistor Mosfet Canal N
+  - Transistor Mosfet Canal N ou Transistor Bipolar NPN BC337 ou BC547
   - Fios
   - Fonte de 12V com no mínimo 1A de corrente
   - Bola de aço
 
+Conhecimentos necessários:
+  - Conhecimento Básico em Programação
+  - Conhecimento some Montagem de Circuitos
+  - Conhecimento sobre Gráficos no EXCEL
+
+Conhecimentos Opcionais:
+  - Conhecimento em Eletrônica: A fim de realizar uma montagem, utilizando componentes como diodos, capacitores etc, mais efetiva dos circuitos, como um circuito de proteção a inversão de polaridade ou corrente reversa no setor do eletroímã.
+  - Conhecimento em C/C++: A fim de ser capaz de alterar, adaptar e melhorar o algorítmo para determinadas cenários.
+
 Arduino Leonardo:
-  - Semelahnte ao Arduino UNO, esse modelo em específico possui a capacidade de emular teclado ou mouse, o que nos é muito útil para passarmos os dados obtidos no experimento direto para algum software de planilhas, como o Excel.
+  - Semelhante ao Arduino UNO, esse modelo em específico possui a capacidade de emular teclado ou mouse, o que nos é muito útil para passarmos os dados obtidos no experimento direto para algum software de planilhas, como o Excel.
 
 Eletroímã:
   - Altamente necessário pois ele é responsável por manter o móvel, no caso, a bola de aço, fixa enquanto o sistema não está em funcionamento e liberar a mesma quando o sistema for acionado. Pode ser facilmente construído em casa, utilizando prego ou qualquer outro material que pode ser usando como núcleo necessariamente ferromagnético, e fio de cobre esmaltado. Por ser um imã elétrico, é possível controlar quando ligar e desligá-lo.
@@ -38,7 +47,7 @@ Led de Alto Brilho:
 Interruptor:
   - Responsável por ligar e desligar o sistema.
 
-Transistor Mosfet Canal N:
+Transistor Mosfet Canal N ou Transistor Bipolar NPN:
   - Componenente eletrônico que pode ser utilizado como interruptor, ele será o responsável pelo chaveamento do eletroímã.
 
 Fios:
