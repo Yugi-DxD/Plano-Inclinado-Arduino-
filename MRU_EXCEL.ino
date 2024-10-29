@@ -116,34 +116,14 @@ void InstantesTempo(){
   //===============================================================================//
   // * Obter os instantes de tempo quando o móvel passar pelos sensores
   //===============================================================================//
-  if (SensoresID() == 0 && sensPass == 0) {
-    tempo[0] = micros();
-    sensPass++;
-    //Obter o valor de tempo no Instante 1
-  }
-
-  if (SensoresID() == 1 && sensPass == 1) {
-    tempo[1] = micros();
-    sensPass++;
-    //Obter o valor de tempo no Instante 2
-  }
-
-  if (SensoresID() == 2 && sensPass == 2) {
-    tempo[2] = micros();
-    sensPass++;
-    //Obter o valor de tempo no Instante 3
-  }
-
-  if (SensoresID() == 3 && sensPass == 3) {
-    tempo[3] = micros();
-    sensPass++;
-    //Obter o valor de tempo no Instante 4
-  }
-
-  if (SensoresID() == 4 && sensPass == 4) {
-    tempo[4] = micros();
-    sensPass++;
-    //Obter o valor de tempo no Instante 5
+  int sensorID - SensoresID();
+    
+  for (int i = 0 ; i < 5 ; i++){
+    if (sensorID == i && sensPass == i){
+      tempo[i] = micros();
+      sensPass++;
+      break;
+    }
   }
 
   //===============================================================================//
