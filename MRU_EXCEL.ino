@@ -170,24 +170,10 @@ void InstantesTempo(){
 //===============================================================================//
 int SensoresID(){
 
-  if (digitalRead(sensor[0]) == LOW) {
-    return 0;
-  }
-
-  if (digitalRead(sensor[1]) == LOW) {
-    return 1;
-  }
-
-  if (digitalRead(sensor[2]) == LOW) {
-    return 2;
-  }
-
-  if (digitalRead(sensor[3]) == LOW) {
-    return 3;
-  }
-
-  if (digitalRead(sensor[4]) == LOW) {
-    return 4;
+  for (int i = 0 ; i < 5 ; i++){
+    if (digitalRead(sensor[i]) == LOW){
+      return i;
+    }
   }
 
 }
