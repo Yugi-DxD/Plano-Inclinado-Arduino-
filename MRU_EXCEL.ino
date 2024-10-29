@@ -104,8 +104,7 @@ void InstantesTempo(){
   //===============================================================================//
   // * Definir variáveis que serão utilizadas para calcular o tempo
   //===============================================================================//
-  unsigned long tempo[5], tempoInicial;
-  float t[5];
+  unsigned long tempo[5];
 
   //===============================================================================//
   // * Desliga o LED e o Eletroímã, indicando que o sistema está funcionado
@@ -134,8 +133,13 @@ void InstantesTempo(){
     //===============================================================================//
     // * Variável de tempo inicial para efetuar a correção nos resultados
     //===============================================================================//
-    tempoInicial = tempo[0];
+    unsigned long tempoInicial = tempo[0];
 
+    //===========================================================================//
+    // * Variável de tempo que armazenará os tempos corrigidos
+    //===========================================================================//
+    float t[5];
+    
     //===============================================================================//
     // * Strings usadas para escrever os dados no EXCEL
     //===============================================================================//
@@ -146,8 +150,6 @@ void InstantesTempo(){
     //===============================================================================//
     for (int i = 0 ; i < 5 ; i++){
       t[i] = float(tempo[i] - tempoInicial) * pow(10, -6);
-
-      delay(50);
 
       instanteTempo[i] = String(t[i], 3);
       instanteTempo[i].replace(".", ",");
