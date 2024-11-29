@@ -109,7 +109,7 @@ void InstantesTempo(){
   //===============================================================================//
   // * Obter os instantes de tempo quando o móvel passar pelos sensores
   //===============================================================================//
-  int sensorID - SensoresID();
+  int sensorID = SensoresID();
     
   for (int i = 0 ; i < 5 ; i++){
     if (sensorID == i && sensPass == i){
