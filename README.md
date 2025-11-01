@@ -1,5 +1,7 @@
 # Plano-Inclinado-Arduino-
 Projeto de releitura do Plano Inclinado de Galileu utilizando Arduino
+Projeto de Trabalho de Conclusão de Curso - Mateus dos Santos da Silva
+IFCE Campus Horizonte
 
 Este projeto consiste numa releitura do clássico experimento de plano inclinado feito pelo astrônomo, físico e engenheiro italiano, Galileu Galilei.
 
